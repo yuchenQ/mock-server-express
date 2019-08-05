@@ -1,21 +1,26 @@
 /** @format */
 import bodyParser from 'body-parser';
 import express from 'express';
-import { NextFunction, Request, Response } from 'express';
+import { Request, Response, Application } from 'express';
+import cors from 'cors';
+import compression from 'compression';
+import addServicesToRoutes from './addServicesToRoutes';
 
-const app = express();
+export default async (servicesDir: string): Promise<Application> => {
+  const app = express();
+  const router = express.Router;
 
-app.use(bodyParser.urlencoded({ limit: '20mb', extended: true }));
-app.use(bodyParser.json({ limit: '20mb' }));
+  await addServicesToRoutes(router)(servicesDir);
 
-app.use(function(err: Error, req: Request, res: Response, next: NextFunction): void {
-  res.sendStatus(500);
+  app.use(cors());
+  app.use(compression());
+  app.use(bodyParser.json());
+  app.use(router);
+  app.use(function(req: Request, res: Response): void {
+    console.error(`${req.path} is missing`);
 
-  next();
-});
+    res.status(404).end();
+  });
 
-app.listen(8000, function(): void {
-  console.log(`the server is start at port ${8000}`);
-});
-
-export { app, app as default };
+  return app;
+};

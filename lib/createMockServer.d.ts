@@ -1,2 +1,3 @@
-declare const app: import("express-serve-static-core").Express;
-export { app, app as default };
+import express from 'express';
+declare const _default: (servicesDir: string) => Promise<express.Application>;
+export default _default;
