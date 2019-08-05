@@ -36,6 +36,7 @@ export default function addServicesToRoutes(router: ExpressRouter): Function {
         handler,
       } = module;
 
+      // eslint-disable-next-line no-console
       console.log(method, actionPath);
 
       router[method.toLowerCase()](actionPath, async function(
@@ -97,6 +98,7 @@ export default function addServicesToRoutes(router: ExpressRouter): Function {
             .send(error)
             .end();
 
+          // eslint-disable-next-line no-console
           console.error(error);
 
           return;
