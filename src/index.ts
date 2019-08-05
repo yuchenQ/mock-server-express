@@ -1,3 +1,5 @@
-export default function():number {
-  return 0;
-}
+/** @format */
+
+const a = 1;
+
+export default a;
