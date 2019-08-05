@@ -12,7 +12,7 @@ module.exports = {
     browser: true,
     node: true,
   },
-  parserOptions: {        //指定ESLint可以解析JSX语法
+  parserOptions: {
     ecmaVersion: 2019,
     sourceType: 'module',
   },
