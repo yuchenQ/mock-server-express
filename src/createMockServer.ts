@@ -18,4 +18,4 @@ app.listen(8000, function(): void {
   console.log(`the server is start at port ${8000}`);
 });
 
-export default app;
+export { app, app as default };
