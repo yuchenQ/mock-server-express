@@ -1,5 +1,5 @@
 # Costumized config
-lib
+/lib
 .env
 
 # Logs
