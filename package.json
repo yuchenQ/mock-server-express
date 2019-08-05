@@ -11,8 +11,8 @@
   "scripts": {
     "clean": "rm -rf lib",
     "build": "concurrently \"yarn clean\" \"yarn build:prod\"",
-    "build:watch": "babel --watch src ---out-dir lib --extensions '.ts,.tsx'",
-    "build:prod": "babel src --out-dir lib --extensions '.ts,.tsx'"
+    "build:prod": "tsc --emitDeclarationOnly && babel src --out-dir lib --extensions '.ts,.tsx'",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "@babel/runtime": "^7.5.5",
