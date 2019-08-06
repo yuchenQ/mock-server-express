@@ -53,10 +53,7 @@ export default function addServicesToRoutes(router: ExpressRouter): Function {
         const { body: requestBody, query: requestQuery } = request;
 
         if (!requestBody && !requestQuery) {
-          res
-            .status(status)
-            .send(body)
-            .end();
+          res.status(status).json(body);
 
           return;
         }
@@ -93,10 +90,7 @@ export default function addServicesToRoutes(router: ExpressRouter): Function {
             ...errorDescription,
           };
 
-          res
-            .status(500)
-            .send(error)
-            .end();
+          res.status(500).json(error);
 
           // eslint-disable-next-line no-console
           console.error(error);
@@ -104,10 +98,7 @@ export default function addServicesToRoutes(router: ExpressRouter): Function {
           return;
         }
 
-        res
-          .status(status)
-          .send(body)
-          .end();
+        res.status(status).json(body);
       });
     });
   };
