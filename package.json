@@ -9,6 +9,10 @@
     "email": "qiaoycitcareer@gmail.com",
     "url": "https://www.linkedin.com/in/yuchen-qiao-761450a5/"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yuchenQ/mock-server-express"
+  },
   "license": "MIT",
   "scripts": {
     "clean": "rm -rf lib",
