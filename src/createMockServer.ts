@@ -1,5 +1,7 @@
 /** @format */
 
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
 import bodyParser from 'body-parser';
 import express from 'express';
 import { Request, Response, Application } from 'express';
