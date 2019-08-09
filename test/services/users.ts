@@ -1,7 +1,6 @@
 /** @format */
 
 import { Request, Response } from 'express';
-/** @format */
 
 export default {
   method: 'POST',
@@ -10,13 +9,14 @@ export default {
     const { foo } = req.body;
 
     if (foo && foo === 'bar') {
-      const error = [
-        {
-          name: 'GO_AWAY',
-          message: "I don't like foo === bar",
-        },
-      ];
-      res.status(400).json(error);
+      res.status(400).json({
+        errors: [
+          {
+            name: 'GO_AWAY',
+            message: "I don't like foo === bar",
+          },
+        ],
+      });
 
       return;
     }

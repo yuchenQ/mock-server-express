@@ -3,13 +3,9 @@
 import fs from 'fs-extra';
 import path from 'path';
 import propsMatch from './helper/propsMatch';
-import { Router, Request, Response, NextFunction, RouterOptions } from 'express';
+import { Router, Request, Response, NextFunction } from 'express';
 
-interface ExpressRouter {
-  (options?: RouterOptions): Router;
-}
-
-export default function addServicesToRoutes(router: ExpressRouter): Function {
+export default function addServicesToRoutes(router: Router): Function {
   return async function(directory: string): Promise<void> {
     const files = await fs.readdir(directory);
 

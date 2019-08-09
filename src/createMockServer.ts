@@ -9,7 +9,7 @@ import addServicesToRoutes from './addServicesToRoutes';
 
 export default async (servicesDir: string): Promise<Application> => {
   const app = express();
-  const router = express.Router;
+  const router = express.Router();
 
   await addServicesToRoutes(router)(servicesDir);
 
